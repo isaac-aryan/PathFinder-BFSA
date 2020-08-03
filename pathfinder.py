@@ -24,7 +24,7 @@ def myMaze2():
     maze.append(["|"," ", "|", " ", "|", " ", "|", " ", "|"])
     maze.append(["|"," ", "|", " ", "|", " ", "|", "|", "|"])
     maze.append(["|"," ", " ", " ", " ", " ", " ", " ", "|"])
-    maze.append(["|","|", "|", "|", "|", "|", "|", "|", "|"])
+    maze.append(["|","|", "|", "|", "|", "X", "|", "|", "|"])
 
     return maze
 
@@ -122,7 +122,14 @@ def findEnd(maze, moves):
 nums = queue.Queue()
 nums.put("")
 add = ""
-maze  = myMaze1()
+choice=int(input("Enter the maze you want to choose. 1/2."))
+if choice==1:
+    maze=myMaze1()
+elif choice==2:
+    maze=myMaze2()
+else:
+    print("Invalid option.")
+
 
 while not findEnd(maze, add): 
     add = nums.get()
