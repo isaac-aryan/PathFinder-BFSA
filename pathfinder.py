@@ -28,7 +28,7 @@ def myMaze2():
 
     return maze
 
-#SETTING THE MAZE
+
 def setMaze(maze, path=""):
     for x, pos in enumerate(maze[0]):
         if pos == "O":
@@ -122,14 +122,7 @@ def findEnd(maze, moves):
 nums = queue.Queue()
 nums.put("")
 add = ""
-print("Which maze do you want to choose? 1 or 2 ?")
-choice=int(input())
-if choice==1:
-    maze=myMaze1()
-elif choice==2:
-    maze=myMaze2()
-else:
-    print("Invalid Option.")
+maze  = myMaze1()
 
 while not findEnd(maze, add): 
     add = nums.get()
