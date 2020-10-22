@@ -1,10 +1,11 @@
 #IMPORTED STUFF
 import queue
+import time
 
 #MAZES
 def myMaze1():
     maze = []
-    maze.append(["|","|", "|", "|", "|", "O","|"])
+    maze.append(["|","O", "|", "|", "|", "|","|"])
     maze.append(["|"," ", " ", " ", "|", " ","|"])
     maze.append(["|"," ", "|", " ", "|", " ","|"])
     maze.append(["|"," ", "|", " ", " ", " ","|"])
@@ -24,7 +25,7 @@ def myMaze2():
     maze.append(["|"," ", "|", " ", "|", " ", "|", " ", "|"])
     maze.append(["|"," ", "|", " ", "|", " ", "|", "|", "|"])
     maze.append(["|"," ", " ", " ", " ", " ", " ", " ", "|"])
-    maze.append(["|","|", "|", "|", "|", "X", "|", "|", "|"])
+    maze.append(["|","X", "|", "|", "|", "|", "|", "|", "|"])
 
     return maze
 
@@ -62,9 +63,7 @@ def setMaze(maze, path=""):
 
 
 def valid(maze, moves):
-    for x, pos in enumerate(maze[0]):
-        if pos == "O":
-            start = x
+    
 
     i = start
     j = 0
@@ -90,9 +89,7 @@ def valid(maze, moves):
 
 
 def findEnd(maze, moves):
-    for x, pos in enumerate(maze[0]):
-        if pos == "O":
-            start = x
+    
 
     i = start
     j = 0
@@ -130,7 +127,10 @@ elif choice==2:
 else:
     print("Invalid option.")
 
-
+starttime=time.time()
+for x, pos in enumerate(maze[0]):
+        if pos == "O":
+            start = x
 while not findEnd(maze, add): 
     add = nums.get()
     #print(add)
@@ -138,3 +138,5 @@ while not findEnd(maze, add):
         put = add + j
         if valid(maze, put):
             nums.put(put)
+
+print("Total Time=",time.time()-starttime)
